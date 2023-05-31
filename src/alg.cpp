@@ -8,7 +8,7 @@
 std::vector<char> getPerm(const Tree& tree, int n) {
   vector<Node*> level = vector<Node*>(tree.enter);
   int len = tree.enter.size();
-  int N = n , s=0, add=0;
+  int N = n, s = 0, add = 0;
   std::vector<int> path(len);
   std::vector<char> out(0);
   if (n > factorial(len)*len) return out;
