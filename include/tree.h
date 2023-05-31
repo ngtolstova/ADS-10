@@ -5,7 +5,7 @@
 #include  <fstream>
 #include  <cstdlib>
 #include <vector>
-using namespace std;
+
 struct Node {
   char c;
   vector<Node*> v;
@@ -30,15 +30,15 @@ class Tree {
   bool MakeTree(vector<Node*> *v, int del_i, std::vector<char> base) {
     if (base.size() == 1) {
       return true;
-	  }
+    }
     std::vector<char> ch(base);
     if (del_i >= 0)
       ch.erase(ch.begin() + del_i);
     int len = ch.size();
     for (int i = 0; i < len; i++) {
-      (*v)[i] = new Node{ ch[i],vector<Node*>(len - 1) };
+      (*v)[i] = new Node{ ch[i], vector<Node*>(len - 1) };
       MakeTree(&((*v)[i]->v), i, ch);
-	  }
+    }
     return true;
   }
 };
