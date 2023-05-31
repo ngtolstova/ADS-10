@@ -5,6 +5,7 @@
 #include  <fstream>
 #include  <cstdlib>
 #include <vector>
+#include <algorithm>
 
 struct Node {
   char c;
@@ -22,7 +23,7 @@ class Tree {
 
  public:
   vector<Node*> enter;
-  Tree(std::vector<char> in) {
+  explicit Tree(std::vector<char> in) {
     base = in;
     enter = vector<Node*>(base.size());
     MakeTree(&enter, -1, base);
