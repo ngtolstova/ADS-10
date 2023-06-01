@@ -1,15 +1,12 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
-#include  <iostream>
-#include  <fstream>
-#include  <cstdlib>
 #include <vector>
 #include <algorithm>
 
 struct Node {
   char c;
-  vector<Node*> v;
+  std::vector<Node*> v;
 };
 int factorial(int number) {
   int F = 1;
@@ -22,13 +19,13 @@ class Tree {
   std::vector<char> base;
 
  public:
-  vector<Node*> enter;
+  std::vector<Node*> enter;
   explicit Tree(std::vector<char> in) {
     base = in;
-    enter = vector<Node*>(base.size());
+    enter = std::vector<Node*>(base.size());
     MakeTree(&enter, -1, base);
   }
-  bool MakeTree(vector<Node*> *v, int del_i, std::vector<char> base) {
+  bool MakeTree(std::vector<Node*> *v, int del_i, std::vector<char> base) {
     if (base.size() == 1) {
       return true;
     }
@@ -37,7 +34,7 @@ class Tree {
       ch.erase(ch.begin() + del_i);
     int len = ch.size();
     for (int i = 0; i < len; i++) {
-      (*v)[i] = new Node{ ch[i], vector<Node*>(len - 1) };
+      (*v)[i] = new Node{ ch[i], std::vector<Node*>(len - 1) };
       MakeTree(&((*v)[i]->v), i, ch);
     }
     return true;
