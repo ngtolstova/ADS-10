@@ -1,11 +1,11 @@
 // Copyright 2022 NNTU-CS
+#include <vector>
 #include  <iostream>
 #include  <fstream>
-#include  <locale>
 #include  <cstdlib>
 #include  "tree.h"
 
-std::vector<char> getPerm(const Tree& tree, int n) {
+vector<char> getPerm(const Tree& tree, int n) {
   vector<Node*> level = vector<Node*>(tree.enter);
   int len = tree.enter.size();
   int N = n, s = 0, add = 0;
